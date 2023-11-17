@@ -1,0 +1,22 @@
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class SpecialCharacterCounter {
+    public static void main(String[] args) {
+        String statement = "This is a statement with @special! characters.";
+        int specialCharacterCount = countSpecialCharacters(statement);
+        System.out.println("Number of special characters: " + specialCharacterCount);
+    }
+
+    private static int countSpecialCharacters(String input) {
+        Pattern pattern = Pattern.compile("[^a-zA-Z0-9\\s]");
+        Matcher matcher = pattern.matcher(input);
+
+        int count = 0;
+        while (matcher.find()) {
+            count++;
+        }
+
+        return count;
+    }
+}
