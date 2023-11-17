@@ -1,0 +1,20 @@
+public class NumberPrinter {
+    public static void main(String[] args) {
+        int M = 1;
+        int N = 20;
+        int K = 3;
+
+        printNumbersWithSkip(M, N, K);
+    }
+
+    private static void printNumbersWithSkip(int start, int end, int skip) {
+        if (start > end || skip <= 0) {
+            System.out.println("Invalid input parameters.");
+            return;
+        }
+
+        for (int i = start; i <= end; i += skip + 1) {
+            System.out.print(i + " ");
+        }
+    }
+}
