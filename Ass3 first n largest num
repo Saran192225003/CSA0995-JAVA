@@ -1,0 +1,25 @@
+import java.util.Arrays;
+
+public class NLargestNumbers {
+    public static void main(String[] args) {
+        int[] array = {12, 45, 9, 67, 23, 1, 78, 56, 89};
+        int n = 3; // You can change this value to find a different number of largest numbers
+
+        findNLargestNumbers(array, n);
+    }
+
+    static void findNLargestNumbers(int[] array, int n) {
+        Arrays.sort(array);
+
+        if (n > array.length) {
+            System.out.println("Error: Array doesn't have enough elements");
+            return;
+        }
+
+        System.out.println("First " + n + " largest numbers:");
+
+        for (int i = array.length - 1; i >= array.length - n; i--) {
+            System.out.println(array[i]);
+        }
+    }
+}
