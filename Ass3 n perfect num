@@ -1,0 +1,34 @@
+public class PerfectNumbers {
+    public static void main(String[] args) {
+        int n = 5; // You can change this value to find a different number of perfect numbers
+        printPerfectNumbers(n);
+    }
+
+    static void printPerfectNumbers(int n) {
+        int count = 0;
+        int num = 2; // Starting from the first positive integer
+
+        while (count < n) {
+            if (isPerfect(num)) {
+                System.out.println(num);
+                count++;
+            }
+            num++;
+        }
+    }
+
+    static boolean isPerfect(int num) {
+        int sum = 1; // Start with 1 because every number is divisible by 1
+
+        for (int i = 2; i * i <= num; i++) {
+            if (num % i == 0) {
+                sum += i;
+                if (i != num / i) {
+                    sum += num / i;
+                }
+            }
+        }
+
+        return sum == num;
+    }
+}
